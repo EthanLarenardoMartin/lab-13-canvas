@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 x 7</title>
+    <style>
+        #sketch{
+            border: 1px solid #000
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas id="sketch" width="800" height="800"></canvas>
+    <script>
+        document.addEventListener("DOMContentLoaded", main);
+
+        
+
+        var sketch;
+        var context;
+        var circle = {"x":0, "y":100, "r":25}; // circle is an object with x,y,and r properties
+        var dx = 2; // incremental value of x each time we redraw the screen
+        var fps = 10; // frames per second (refresh rate)
+        const pi = Math.PI;
+
+        function main() {
+            sketch = document.getElementById("sketch"); // getting the context of our canvas
+            context = sketch.getContext("2d");
+            circle = {"x":25, "y":sketch.offsetHeight / 2, "r":25};
+            setInterval(animate, fps); // animating the screen every so often
+        }
+
+        function animate() {
+            context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight); // clears the canvas(screen)
+            draw_circle(circle.x,circle.y, circle.r); // calls our draw_circle function
+            circle.x = circle.x + dx; // increments the x value of the circle
+                // the next part is a test of the x value of the circle
+            if (circle.x > sketch.offsetWidth - dx - circle.r){ // if right edge of circle exceeds RIGHT wall 
+                dx = dx * -1; // incrementing negative X values:)
+            } else if (circle.x < circle.r - dx) {
+                dx = dx * -1; // reverse direction (start 
+            }
+        }
+
+        function draw_circle(x,y,r){
+            context.beginPath();
+			context.arc(x, y, r, 0, 2 * pi, true);
+			context.closePath();
+			context.fill();
+        }
+    </script>
+
+</body>
+</html>
