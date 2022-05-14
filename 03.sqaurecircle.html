@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square</title>
+</head>
+<body onload="draw()">
+    <canvas id="sketch" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var sketch = document.getElementById("sketch")
+            var context = sketch.getContext("2d")
+            
+            context.fillStyle = "#ff00ff";
+            context.fillRect(25, 40, 75, 75);
+            // context.fillRect(x, y, width, height);
+
+            context.beginPath();
+			context.arc(150, 75, 40, 0, 2 * Math.PI, true);
+            // context.arc(x, y, radius, start angle, end angle, clockwise);
+			context.closePath();
+			context.fill();
+
+            
+        }
+
+    </script>
+
+</body>
+</html>
