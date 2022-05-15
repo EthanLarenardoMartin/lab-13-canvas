@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+</head>
+<body onload="draw()">
+    <canvas id="sketch" width="800" height="800"></canvas>
+    <script>
+function draw() {
+            var sketch = document.getElementById("sketch")
+            var context = sketch.getContext("2d")
+            
+            context.fillStyle = "000000";
+            const pi = Math.PI; 
+            var flip = true;
+            // c = columns
+            // r = rows
+            for (var c = 1; c <= 8; c++) {
+               flip = !flip; 
+               // "!" in front of a boolean variable will reverse the value.
+                for (var r = 1; r <= 8; r++){
+                    flip = !flip;
+                    if (flip)
+                        context.fillRect((c * 20), (r * 20), 20, 20);
+                }
+            }
+            
+        }
+
+    </script>
+ 
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Grow</title>
+</head>
+<body onload="draw()">
+    <canvas id="sketch" width="800" height="800"></canvas>
+    <script>
+        function draw() {
+            var sketch = document.getElementById("sketch")
+            var context = sketch.getContext("2d")
+            const pi = Math.PI;
+
+            for (var i = 1; i <= 9; i++) {
+                    context.fillStyle = "#000000";
+                    context.beginPath();
+                    context.arc((i * 50), (i * 50), 10 + i * 2, 0, (2 * pi), true);
+                    // context.arc(x, y, radius, start angle, end angle, clockwise);
+                    context.closePath();
+                    context.fill();
+                    
+                }
+                
+        }
+    
+// c = columns
+            // r = rows
+            //for (var c = 1; c <= 8; c ++) {
+                //for (var r = 1; r <= 8; r ++) {
+                    //context.fillRect((r * 50), (c * 50), 20, 20);
+                    // context.fillRect(x, y, width, height);
+                    //context.fillStyle = "#000000";
+                //}
+                
+            //}
+    </script>
+ 
+</body>
+</html>

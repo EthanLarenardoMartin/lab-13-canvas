@@ -21,26 +21,29 @@
         var sketch;
         var context;
         var circle = {"x":0, "y":100, "r":25}; // circle is an object with x,y,and r properties
-        var dx = 2; // incremental value of x each time we redraw the screen
+        var dy = 2; 
         var fps = 10; // frames per second (refresh rate)
         const pi = Math.PI;
+        var acc = .2;
 
         function main() {
             sketch = document.getElementById("sketch"); // getting the context of our canvas
             context = sketch.getContext("2d");
-            circle = {"x":25, "y":sketch.offsetHeight / 2, "r":25};
+            circle = {"x":25, "y":100, "r":25};
             setInterval(animate, fps); // animating the screen every so often
         }
 
         function animate() {
             context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight); // clears the canvas(screen)
             draw_circle(circle.x,circle.y, circle.r); // calls our draw_circle function
-            circle.x = circle.x + dx; // increments the x value of the circle
-                // the next part is a test of the x value of the circle
-            if (circle.x > sketch.offsetWidth - dx - circle.r){ // if right edge of circle exceeds RIGHT wall 
-                dx = dx * -1; // incrementing negative X values:)
-            } else if (circle.x < circle.r - dx) {
-                dx = dx * -1; // reverse direction (start 
+            dy = dy + 1;
+            circle.y = circle.y + dy 
+
+                
+            if (circle.y > sketch.offsetWidth - dy - circle.r){ // if right edge of circle exceeds RIGHT wall 
+                dy = dy * -acc; 
+            } else if (circle.y < circle.r - dy) {
+                dy = dy * -acc;
             }
         }
 
