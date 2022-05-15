@@ -40,7 +40,7 @@
             circle.y = circle.y + dy 
 
                 
-            if (circle.y > sketch.offsetWidth - dy - circle.r){ // if right edge of circle exceeds RIGHT wall 
+            if (circle.y > sketch.offsetWidth - dy - circle.r){
                 dy = dy * -acc; 
             } else if (circle.y < circle.r - dy) {
                 dy = dy * -acc;
